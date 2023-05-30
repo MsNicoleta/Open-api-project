@@ -73,7 +73,18 @@ const handleSubmit = async (event) => {
   loader(botMessageDiv);
 
   // Scroll to the top to show new messages
-  chatContainer.scrollTop = 0;
+  chatContainer.scrollBottom = 0;
+//fetch data from the server
+const response = await fetch('http://localhost:3000',{
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    prompt:data.get('prompt'),
+  })
+})
+
 };
 
 form.addEventListener('submit', handleSubmit);
